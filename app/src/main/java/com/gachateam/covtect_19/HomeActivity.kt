@@ -1,5 +1,6 @@
 package com.gachateam.covtect_19
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.gachateam.covtect_19.databinding.ActivityHomeBinding
@@ -12,5 +13,10 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnStart.setOnClickListener {
+            val intent = Intent(this@HomeActivity, AgreementActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
