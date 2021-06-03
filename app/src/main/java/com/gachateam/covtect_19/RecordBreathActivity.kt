@@ -15,7 +15,7 @@ import java.io.File
 import java.io.IOException
 import java.lang.Exception
 
-class RecordCoughActivity : AppCompatActivity(), View.OnClickListener {
+class RecordBreathActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val EXTRA_USER = "extra_user"
@@ -43,10 +43,12 @@ class RecordCoughActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityRecordCoughBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.tvRecordInstruction.text = resources.getString(R.string.record_breath_instruction)
+
         user = intent.getParcelableExtra<User>(EXTRA_USER)
 
         filePath = this.getExternalFilesDir("/")?.absolutePath.toString()
-        fileName = "${user?.userId}_cough.wav"
+        fileName = "${user?.userId}_breath.wav"
 
         binding.ibRecord.setOnClickListener(this)
         binding.ibPlay.setOnClickListener (this)
@@ -81,8 +83,7 @@ class RecordCoughActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             binding.btnKirim.id -> {
-                val intent = Intent(this@RecordCoughActivity, RecordBreathActivity::class.java)
-                intent.putExtra(RecordBreathActivity.EXTRA_USER, user)
+                val intent = Intent(this@RecordBreathActivity, ResultActivity::class.java)
                 startActivity(intent)
             }
         }

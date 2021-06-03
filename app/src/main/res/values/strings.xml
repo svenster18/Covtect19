@@ -32,8 +32,16 @@
     <string name="wet_cough">Batuk Basah</string>
     <string name="vertigo">Vertigo</string>
     <string name="tight_chest">Dada Sesak</string>
-    <string name="record_instruction">Pastikan tidak ada suara sekitar yang masuk Klik tombol ini lalu batuk tiga kali. Setelah selesai, klik tombol kembali</string>
+    <string name="record_cough_instruction">Pastikan tidak ada suara sekitar yang masuk Klik tombol ini lalu batuk tiga kali. Setelah selesai, klik tombol kembali</string>
+    <string name="record_breath_instruction">Pastikan tidak ada suara sekitar yang masuk Klik tombol di bawah lalu hirup udara sekuat-kuatnya dan hembuskan sekuat-kuatnya Ulangi 5 kali Setelah selesai, klik tombol kembali</string>
     <string name="check_instruction">Tekan tombol ini untuk memeriksa suara Anda. Apabila terekam suara selain batuk (suara kendaraan, orang berbicara), maka klik lagi tombol diatas</string>
     <string name="send_instruction">Apabila suara telah bersih dari berbagai macam suara selain batuk, maka klik tombol kirim</string>
     <string name="send">Kirim</string>
+    <string name="play_error">Mohon rekam suara terlebih dahulu</string>
+    <string name="loading">Proses Diagnosis Sedang Berlangsung, Harap Tunggu</string>
+    <string name="diagnose_result">Hasil Diagnosis</string>
+    <string name="result">20% Mengidap Covid-19</string>
+    <string name="back_to_home">Kembali ke Layar Utama</string>
+    <string name="start_test_again">Mulai Tes Lagi</string>
+
 </resources>
