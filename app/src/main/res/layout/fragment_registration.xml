@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".RegistrationFragment">
+
+    <TextView
+        android:id="@+id/tv_age"
+        style="@style/TextFieldTitle"
+        android:text="@string/age"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_age"
+        app:layout_constraintTop_toBottomOf="@id/tv_age"
+        app:layout_constraintStart_toStartOf="@id/tv_age"/>
+
+    <TextView
+        android:id="@+id/tv_gender"
+        style="@style/TextFieldTitle"
+        android:layout_marginTop="16dp"
+        android:text="@string/gender"
+        app:layout_constraintTop_toBottomOf="@id/edt_age"
+        app:layout_constraintStart_toStartOf="@id/edt_age" />
+
+    <RadioGroup
+        android:id="@+id/rg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_age"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_gender"
+        app:layout_constraintStart_toStartOf="@id/tv_gender">
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/male"/>
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/female"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_height"
+        style="@style/TextFieldTitle"
+        android:text="@string/height"
+        app:layout_constraintTop_toBottomOf="@id/rg_gender"
+        app:layout_constraintStart_toStartOf="@id/rg_gender" />
+
+    <EditText
+        android:id="@+id/edt_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_height"
+        app:layout_constraintTop_toBottomOf="@id/tv_height"
+        app:layout_constraintStart_toStartOf="@id/tv_height"/>
+
+    <TextView
+        android:id="@+id/tv_weight"
+        style="@style/TextFieldTitle"
+        android:text="@string/weight"
+        app:layout_constraintTop_toBottomOf="@id/edt_height"
+        app:layout_constraintStart_toStartOf="@id/edt_height" />
+
+    <EditText
+        android:id="@+id/edt_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_weight"
+        app:layout_constraintTop_toBottomOf="@id/tv_weight"
+        app:layout_constraintStart_toStartOf="@id/tv_weight"/>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Button"
+        android:text="@string/cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Button"
+        android:layout_marginStart="16dp"
+        android:text="@string/continue1"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

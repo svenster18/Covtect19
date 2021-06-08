@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    tools:context=".SymptomFragment">
+
+    <TextView
+        android:id="@+id/tv_symptoms"
+        style="@style/TextFieldTitle"
+        android:text="@string/symptoms"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_asthma"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/asthma"
+        app:layout_constraintEnd_toStartOf="@+id/cb_dizzy"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_symptoms" />
+
+    <CheckBox
+        android:id="@+id/cb_fever"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/fever"
+        app:layout_constraintEnd_toEndOf="@id/cb_asthma"
+        app:layout_constraintStart_toStartOf="@+id/cb_asthma"
+        app:layout_constraintTop_toBottomOf="@id/cb_asthma" />
+
+    <CheckBox
+        android:id="@+id/cb_short_breathed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/short_breathed"
+        app:layout_constraintEnd_toEndOf="@+id/cb_fever"
+        app:layout_constraintStart_toStartOf="@+id/cb_fever"
+        app:layout_constraintTop_toBottomOf="@id/cb_fever" />
+
+    <CheckBox
+        android:id="@+id/cb_diarrhea"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/diarrhea"
+        app:layout_constraintEnd_toEndOf="@+id/cb_short_breathed"
+        app:layout_constraintStart_toStartOf="@+id/cb_short_breathed"
+        app:layout_constraintTop_toBottomOf="@id/cb_short_breathed" />
+
+    <CheckBox
+        android:id="@+id/cb_muscle_ache"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/muscle_ache"
+        app:layout_constraintEnd_toEndOf="@+id/cb_diarrhea"
+        app:layout_constraintStart_toStartOf="@+id/cb_diarrhea"
+        app:layout_constraintTop_toBottomOf="@id/cb_diarrhea" />
+
+    <CheckBox
+        android:id="@+id/cb_sore_throat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sore_throat"
+        app:layout_constraintEnd_toEndOf="@+id/cb_muscle_ache"
+        app:layout_constraintStart_toStartOf="@+id/cb_muscle_ache"
+        app:layout_constraintTop_toBottomOf="@id/cb_muscle_ache" />
+
+    <CheckBox
+        android:id="@+id/cb_dizzy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dizzy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cb_asthma"
+        app:layout_constraintTop_toTopOf="@id/cb_asthma" />
+
+    <CheckBox
+        android:id="@+id/cb_dry_cough"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dry_cough"
+        app:layout_constraintEnd_toEndOf="@+id/cb_dizzy"
+        app:layout_constraintStart_toStartOf="@id/cb_dizzy"
+        app:layout_constraintTop_toBottomOf="@id/cb_dizzy" />
+
+    <CheckBox
+        android:id="@+id/cb_wet_cough"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wet_cough"
+        app:layout_constraintEnd_toEndOf="@+id/cb_dry_cough"
+        app:layout_constraintStart_toStartOf="@id/cb_dry_cough"
+        app:layout_constraintTop_toBottomOf="@id/cb_dry_cough" />
+
+    <CheckBox
+        android:id="@+id/cb_vertigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/vertigo"
+        app:layout_constraintEnd_toEndOf="@+id/cb_wet_cough"
+        app:layout_constraintStart_toStartOf="@id/cb_wet_cough"
+        app:layout_constraintTop_toBottomOf="@id/cb_wet_cough" />
+
+    <CheckBox
+        android:id="@+id/cb_tight_chest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tight_chest"
+        app:layout_constraintEnd_toEndOf="@+id/cb_vertigo"
+        app:layout_constraintStart_toStartOf="@id/cb_vertigo"
+        app:layout_constraintTop_toBottomOf="@id/cb_vertigo" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Button"
+        android:text="@string/cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Button"
+        android:layout_marginStart="16dp"
+        android:text="@string/continue1"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

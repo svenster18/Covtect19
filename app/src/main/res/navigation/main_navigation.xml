@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.gachateam.covtect_19.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_agreementFragment"
+            app:destination="@id/agreementFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/agreementFragment"
+        android:name="com.gachateam.covtect_19.AgreementFragment"
+        android:label="fragment_agreement"
+        tools:layout="@layout/fragment_agreement" >
+        <action
+            android:id="@+id/action_agreementFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_agreementFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.gachateam.covtect_19.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_agreementFragment"
+            app:destination="@id/agreementFragment"
+            app:popUpTo="@id/agreementFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registrationFragment_to_symptomFragment"
+            app:destination="@id/symptomFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomFragment"
+        android:name="com.gachateam.covtect_19.SymptomFragment"
+        android:label="fragment_symptom"
+        tools:layout="@layout/fragment_symptom" >
+        <argument
+            android:name="user"
+            app:argType="com.gachateam.covtect_19.User" />
+        <action
+            android:id="@+id/action_symptomFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_symptomFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.gachateam.covtect_19.PersonalInformationFragment"
+        android:label="fragment_personal_information"
+        tools:layout="@layout/fragment_personal_information" >
+        <action
+            android:id="@+id/action_personalInformationFragment_to_symptomFragment"
+            app:destination="@id/symptomFragment"
+            app:popUpTo="@id/personalInformationFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="user"
+            app:argType="com.gachateam.covtect_19.User" />
+        <action
+            android:id="@+id/action_personalInformationFragment_to_recordCoughFragment"
+            app:destination="@id/recordCoughFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordCoughFragment"
+        android:name="com.gachateam.covtect_19.RecordCoughFragment"
+        android:label="fragment_record_cough"
+        tools:layout="@layout/fragment_record_cough" >
+        <argument
+            android:name="user"
+            app:argType="com.gachateam.covtect_19.User" />
+        <action
+            android:id="@+id/action_recordCoughFragment_to_recordBreathFragment"
+            app:destination="@id/recordBreathFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordBreathFragment"
+        android:name="com.gachateam.covtect_19.RecordBreathFragment"
+        android:label="fragment_record_breath"
+        tools:layout="@layout/fragment_record_breath" >
+        <argument
+            android:name="user"
+            app:argType="com.gachateam.covtect_19.User" />
+        <action
+            android:id="@+id/action_recordBreathFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.gachateam.covtect_19.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_agreementFragment"
+            app:destination="@id/agreementFragment"
+            app:popUpTo="@id/agreementFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resultFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="user"
+            app:argType="com.gachateam.covtect_19.User" />
+    </fragment>
+</navigation>
