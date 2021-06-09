@@ -26,6 +26,9 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.title = getString(R.string.diagnose_result)
+
         binding.btnStart.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_resultFragment_to_agreementFragment)
         )

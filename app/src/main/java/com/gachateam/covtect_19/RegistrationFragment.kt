@@ -77,7 +77,7 @@ class RegistrationFragment : Fragment() {
 
         try {
             weight = binding.edtWeight.text.toString().toInt()
-            return User(null, age, gender, height, weight)
+            return User(null, age, gender, height, weight, null)
         } catch (e: NumberFormatException) {
             binding.edtWeight.error = "Hanya diperbolehkan memasukkan Angka"
             return null

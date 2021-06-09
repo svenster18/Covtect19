@@ -43,5 +43,6 @@
     <string name="result">20% Mengidap Covid-19</string>
     <string name="back_to_home">Kembali ke Layar Utama</string>
     <string name="start_test_again">Mulai Tes Lagi</string>
+    <string name="record_cough">Rekam Suara Batuk</string>
 
 </resources>

@@ -55,6 +55,9 @@ class RecordCoughFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.title = getString(R.string.record_cough)
+
         val user = RecordCoughFragmentArgs.fromBundle(arguments as Bundle).user
 
         filePath = activity?.getExternalFilesDir("/")?.absolutePath.toString()
@@ -86,7 +89,7 @@ class RecordCoughFragment : Fragment(){
         }
         binding.btnKirim.setOnClickListener {
             val toRecordCoughFragment =
-                RecordCoughFragmentDirections.actionRecordCoughFragmentToRecordBreathFragment(user)
+                RecordCoughFragmentDirections.actionRecordCoughFragmentToResultFragment(user)
             view.findNavController().navigate(toRecordCoughFragment)
         }
     }
