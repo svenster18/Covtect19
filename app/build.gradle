@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.gachateam.covtect_19"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -34,6 +34,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        mlModelBinding true
+    }
+    // Specify that the tflite file should not be compressed when building the APK package.
+    aaptOptions {
+        noCompress "tflite"
     }
 }
 
@@ -55,6 +60,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0-rc1'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
+    implementation 'org.tensorflow:tensorflow-lite-task-audio:0.2.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.3.0'
 
     // test
     testImplementation 'junit:junit:4.13.2'

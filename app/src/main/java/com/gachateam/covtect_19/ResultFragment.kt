@@ -8,6 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.gachateam.covtect_19.databinding.FragmentRecordBreathBinding
 import com.gachateam.covtect_19.databinding.FragmentResultBinding
+import com.gachateam.covtect_19.ml.CovidModel
+import com.google.flatbuffers.ByteBufferReadWriteBuf
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.File
+import java.nio.ByteBuffer
 
 class ResultFragment : Fragment() {
 
@@ -27,7 +33,15 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val user = ResultFragmentArgs.fromBundle(arguments as Bundle).user
+
+
+
         activity?.title = getString(R.string.diagnose_result)
+
+        val percent = user.coughRecord*100
+
+        binding.tvResult.text = "${percent.toInt()}% terindikasi Covid-19"
 
         binding.btnStart.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_resultFragment_to_agreementFragment)

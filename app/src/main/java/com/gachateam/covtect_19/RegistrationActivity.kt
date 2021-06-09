@@ -63,7 +63,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         try {
             weight = binding.edtWeight.text.toString().toInt()
-            return User(null, age, gender, height, weight, null)
+            return User(null, age, gender, height, weight, 0.0f)
         } catch (e: NumberFormatException) {
             binding.edtWeight.error = "Hanya diperbolehkan memasukkan Angka"
             return null

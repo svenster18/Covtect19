@@ -1,25 +1,23 @@
 package com.gachateam.covtect_19
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.*
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.gachateam.covtect_19.databinding.ActivityRecordCoughBinding
-import com.gachateam.covtect_19.databinding.FragmentPersonalInformationBinding
 import com.gachateam.covtect_19.databinding.FragmentRecordCoughBinding
+import org.tensorflow.lite.task.audio.classifier.AudioClassifier
+import org.tensorflow.lite.task.audio.classifier.Classifications
 import java.io.File
 import java.io.IOException
-import java.lang.Exception
+
 
 class RecordCoughFragment : Fragment(){
 
@@ -42,6 +40,8 @@ class RecordCoughFragment : Fragment(){
     private var isReady: Boolean = false
     private var _binding: FragmentRecordCoughBinding? = null
     private val binding get() = _binding!!
+    private var record: AudioRecord? = null
+    private lateinit var classifier: AudioClassifier
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +59,9 @@ class RecordCoughFragment : Fragment(){
         activity?.title = getString(R.string.record_cough)
 
         val user = RecordCoughFragmentArgs.fromBundle(arguments as Bundle).user
+
+        // Initialization
+        classifier = AudioClassifier.createFromFile(requireActivity(), "Covid_model.tflite")
 
         filePath = activity?.getExternalFilesDir("/")?.absolutePath.toString()
         fileName = "${user?.userId}_cough.wav"
@@ -88,6 +91,20 @@ class RecordCoughFragment : Fragment(){
             }
         }
         binding.btnKirim.setOnClickListener {
+            // Load latest audio samples
+            val audioTensor = classifier.createInputTensorAudio()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                audioTensor.load(record)
+            }
+
+            // Run inference
+            val results: List<Classifications> = classifier.classify(audioTensor)
+
+            record?.release()
+            record = null
+
+            user.coughRecord = results[0].categories[1].score
+            
             val toRecordCoughFragment =
                 RecordCoughFragmentDirections.actionRecordCoughFragmentToResultFragment(user)
             view.findNavController().navigate(toRecordCoughFragment)
@@ -124,6 +141,7 @@ class RecordCoughFragment : Fragment(){
         }
         return isRecordGranted && isWriteGranted && isReadGranted
     }
+
     private fun startRecord() {
         file = File(filePath + "/" + fileName)
         if (file.exists()) {
@@ -144,12 +162,14 @@ class RecordCoughFragment : Fragment(){
             e.printStackTrace()
         }
         mediaRecorder?.start()
+
+        // Start recording
+        record = classifier.createAudioRecord()
+        record?.startRecording()
     }
 
     private fun stopRecord() {
-        mediaRecorder?.stop()
-        mediaRecorder?.release()
-        mediaRecorder = null
+        record?.stop()
     }
 
     private fun playAndStop() {

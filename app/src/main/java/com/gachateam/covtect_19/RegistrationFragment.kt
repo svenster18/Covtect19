@@ -1,6 +1,5 @@
 package com.gachateam.covtect_19
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import com.gachateam.covtect_19.databinding.FragmentHomeBinding
 import com.gachateam.covtect_19.databinding.FragmentRegistrationBinding
 import java.lang.NullPointerException
 import java.lang.NumberFormatException
@@ -77,7 +75,7 @@ class RegistrationFragment : Fragment() {
 
         try {
             weight = binding.edtWeight.text.toString().toInt()
-            return User(null, age, gender, height, weight, null)
+            return User(null, age, gender, height, weight, 0.0f)
         } catch (e: NumberFormatException) {
             binding.edtWeight.error = "Hanya diperbolehkan memasukkan Angka"
             return null
