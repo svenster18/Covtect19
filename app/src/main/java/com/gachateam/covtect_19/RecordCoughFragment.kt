@@ -22,7 +22,6 @@ import java.io.IOException
 class RecordCoughFragment : Fragment(){
 
     companion object {
-        const val EXTRA_USER = "extra_user"
         const val RECORD_PERMISSION = Manifest.permission.RECORD_AUDIO
         const val WRITE_PERMISSION = Manifest.permission.WRITE_EXTERNAL_STORAGE
         const val READ_PERMISSION = Manifest.permission.READ_EXTERNAL_STORAGE
@@ -83,12 +82,7 @@ class RecordCoughFragment : Fragment(){
             }
         }
         binding.ibPlay.setOnClickListener {
-            try {
-                playAndStop()
-            }
-            catch (e : Exception) {
-                Toast.makeText(activity, resources.getString(R.string.play_error), Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(activity, "Coming soon", Toast.LENGTH_SHORT).show()
         }
         binding.btnKirim.setOnClickListener {
             // Load latest audio samples
@@ -143,7 +137,7 @@ class RecordCoughFragment : Fragment(){
     }
 
     private fun startRecord() {
-        file = File(filePath + "/" + fileName)
+        /*file = File(filePath + "/" + fileName)
         if (file.exists()) {
             file?.delete()
         }
@@ -161,7 +155,7 @@ class RecordCoughFragment : Fragment(){
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        mediaRecorder?.start()
+        mediaRecorder?.start()*/
 
         // Start recording
         record = classifier.createAudioRecord()
